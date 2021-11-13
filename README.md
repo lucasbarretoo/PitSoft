@@ -10,10 +10,10 @@
 ## READ ME
 
 Requisitos para rodar o sistema: 
-<p PHP 8 >
-<p Laravel 8>
-<p PostgreSql>
-<p Composer>
+<p> PHP 8 </p>>
+<p> Laravel 8</p>>
+<p> PostgreSql</p>>
+<p> Composer</p>>
 
 
 
@@ -26,12 +26,12 @@ OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o de
 
 Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:
 
-<p DB_CONNECTION=pgsql >
-<p DB_HOST=127.0.0.1>
-<p DB_PORT=5432>
-<p DB_DATABASE=PitSoft>
-<p DB_USERNAME=postgres>
-<p DB_PASSWORD=admin>
+<p> DB_CONNECTION=pgsql </p>
+<p> DB_HOST=127.0.0.1</p>
+<p> DB_PORT=5432</p>
+<p> DB_DATABASE=PitSoft</p>
+<p> DB_USERNAME=postgres</p>
+<p> DB_PASSWORD=admin</p>
 
 
 Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:
