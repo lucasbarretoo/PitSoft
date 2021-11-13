@@ -14,6 +14,7 @@
 <p> Laravel 8</p>
 <p> PostgreSql</p>
 <p> Composer</p>
+<p> GIT</p>
 
 
 
