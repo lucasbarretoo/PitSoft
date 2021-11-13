@@ -35,7 +35,7 @@
 <p> DB_PASSWORD=admin</p>
 
 
-<h1>Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:</h1>
+<h5>Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:</h5>
 
 <p>composer install</p>
 <p>php artisan migrate</p>
