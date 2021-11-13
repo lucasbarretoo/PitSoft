@@ -27,19 +27,19 @@
 
 <h3>Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:</h3>
 
-<p> DB_CONNECTION=pgsql </p>
-<p> DB_HOST=127.0.0.1</p>
-<p> DB_PORT=5432</p>
-<p> DB_DATABASE=PitSoft</p>
-<p> DB_USERNAME=postgres</p>
-<p> DB_PASSWORD=admin</p>
+<p> DB_CONNECTION=pgsql
+<br> DB_HOST=127.0.0.1
+<br> DB_PORT=5432
+<br> DB_DATABASE=PitSoft
+<br> DB_USERNAME=postgres
+<br> DB_PASSWORD=admin</p>
 
 
 <h3>Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:</h3>
 
-<p>composer install</p>
-<p>php artisan migrate</p>
-<p>php artisan db:seed</p>
+<p>composer install
+<br>php artisan migrate
+<br>php artisan db:seed</p>
 
 <h3>Para subir um servidor pelo laravel realizar o seguinte comando após todos os passos anteriores</h3>
 <p>php artisan serve<p>
