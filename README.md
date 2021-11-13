@@ -10,28 +10,28 @@
 ## READ ME
 
 Requisitos para rodar o sistema: 
-PHP 8
-Laravel 8
-PostgreSql
-Composer
+<p PHP 8 >
+<p Laravel 8>
+<p PostgreSql>
+<p Composer>
 
 
 
 Realizar o clone do projeto https://github.com/lucasbarretoo/PitSoft para uma pasta no seu computador.
 
 Após realizar clone alterar a branch do git para a branch develop com o seguinte comando:
-git checkout develop
+<p git checkout develop >
 
 OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o desenvolvimendo da aplicação
 
 Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:
 
-DB_CONNECTION=pgsql 
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=PitSoft
-DB_USERNAME=postgres
-DB_PASSWORD=admin
+<p DB_CONNECTION=pgsql >
+<p DB_HOST=127.0.0.1>
+<p DB_PORT=5432>
+<p DB_DATABASE=PitSoft>
+<p DB_USERNAME=postgres>
+<p DB_PASSWORD=admin>
 
 
 Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:
