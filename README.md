@@ -20,7 +20,7 @@ Composer
 Realizar o clone do projeto https://github.com/lucasbarretoo/PitSoft para uma pasta no seu computador.
 
 Após realizar clone alterar a branch do git para a branch develop com o seguinte comando:
-# git checkout develop
+git checkout develop
 
 OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o desenvolvimendo da aplicação
 
@@ -36,6 +36,6 @@ DB_PASSWORD=admin
 
 Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:
 
-# composer install
-# php artisan migrate
-# php artisan db:seed
+composer install
+php artisan migrate
+php artisan db:seed
