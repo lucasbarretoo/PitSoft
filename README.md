@@ -26,7 +26,7 @@ OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o de
 
 Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:
 
-DB_CONNECTION=pgsql
+DB_CONNECTION=pgsql 
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=PitSoft
