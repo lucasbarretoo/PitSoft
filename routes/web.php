@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\PainelAtendimentoController;
+use App\Http\Controllers\bFormController;
+use App\Http\Controllers\bPackController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\rlt_produtosController;
+use App\Http\Controllers\rlt_pessoasController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,34 +21,45 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home/home');
-})->middleware(['auth']);
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/home', function () {
-    return view('home/home');
-})->middleware(['auth'])->name('home');
+    Route::get('/', [PainelAtendimentoController::class, 'index'])->name('PainelAtendimento.index');
+    Route::get('/home', [PainelAtendimentoController::class, 'index'])->name('home');
 
+    /**
+     * Rotas bpack Sistema
+     */
+    Route::prefix('/sistema')->group(function(){
+        Route::get('/bpack', [bPackController::class,'index'])->name('bpack.index');
+        Route::get('/bform', [bFormController::class,'index'])->name('bform.index');
+    });
 
+    /**
+     * Rotas Pessoa
+     */
+    Route::prefix('/cadastros')->group(function(){
+        Route::get('/Produtos', [ProdutoController::class,'index'])->name('produtos.index');
+        
+        Route::get('/Pessoas', [PessoaController::class,'index'])->name('pessoas.index');
+        
+        Route::get('/pessoa/cadastrar', [PessoaController::class,'cadastrar'])->name('pessoa.cadastrar');
+        
+        Route::post('/pessoa/salvar', [PessoaController::class,'salvar'])->name('pessoa.salvar');
+        
+        Route::put('/pessoa/atualizar/{IDPESSOA}', [PessoaController::class,'atualizar'])->name('pessoa.atualizar');
+        
+        Route::get('/pessoa/editar/{IDPESSOA}', [PessoaController::class,'editar'])->name('pessoa.editar');
+        
+        Route::get('/pessoa/deletar/{IDPESSOA}', [PessoaController::class,'deletar'])->name('pessoa.deletar');
+        
+        Route::get('/pessoa/detalhar/{IDPESSOA}', [PessoaController::class, 'detalhe'])->name('pessoa.detalhe');
 
-/**
- * Rotas Pessoa
- */
-Route::get('/listagemPessoas', [PessoaController::class,'index'])->name('pessoa.index')->middleware('auth');
-
-Route::get('/pessoa/cadastrar', [PessoaController::class,'cadastrar'])->name('pessoa.cadastrar')->middleware('auth');
-
-Route::post('/pessoa/salvar', [PessoaController::class,'salvar'])->name('pessoa.salvar')->middleware('auth');
-
-Route::put('/pessoa/atualizar/{IDPESSOA}', [PessoaController::class,'atualizar'])->name('pessoa.atualizar')->middleware('auth');
-
-Route::get('/pessoa/editar/{IDPESSOA}', [PessoaController::class,'editar'])->name('pessoa.editar')->middleware('auth');
-
-Route::get('/pessoa/deletar/{IDPESSOA}', [PessoaController::class,'deletar'])->name('pessoa.deletar')->middleware('auth');
-
-Route::get('/pessoa/detalhar/{IDPESSOA}', [PessoaController::class, 'detalhe'])->name('pessoa.detalhe')->middleware('auth');
-
-
+        Route::prefix('/Relatorios')->group(function(){
+            Route::get('/rlt_produtos', [rlt_produtosController::class, 'index'])->name('rlt_produtos.index');
+            Route::get('/rlt_pessoas', [rlt_pessoasController::class, 'index'])->name('rlt_pessoas.index');
+        });
+    });
+});
 
 require __DIR__.'/auth.php';
 

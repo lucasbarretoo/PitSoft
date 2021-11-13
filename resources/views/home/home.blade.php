@@ -79,7 +79,7 @@
         ];
             Form::bSmallBox($aDadosSmalBox);
         Form::bEndRow();
-    Form::bEndForm();
+    Form::bEndForm('', 'Adicionar Mesa');
 @endphp
 @stop
 

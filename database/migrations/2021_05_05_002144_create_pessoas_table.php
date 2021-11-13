@@ -13,15 +13,15 @@ class CreatePessoasTable extends Migration
      */
     public function up()
     {
-        Schema::create('PESSOAS', function (Blueprint $table) {
-            $table->id('IDPESSOA');
-            $table->string('NOME');
-            $table->string('EMAIL');
-            $table->string('ENDERECO');
-            $table->string('PAIS');
-            $table->string('CIDADE');
-            $table->string('ESTADO');
-            $table->string('CEP');
+        Schema::create('pessoas', function (Blueprint $table) {
+            $table->id('idpessoa');
+            $table->string('nmpessoa');
+            $table->string('email');
+            $table->string('endereco');
+            $table->string('pais');
+            $table->string('cidade');
+            $table->string('estado');
+            $table->string('cep');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreatePessoasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('PESSOAS');
+        Schema::dropIfExists('pessoas');
     }
 }

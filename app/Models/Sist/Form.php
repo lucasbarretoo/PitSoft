@@ -16,7 +16,7 @@ class Form extends Model{
      */
     static function bBeginForm($caption = '', $aRota = [], $returnPrint = null){
         $form = '';
-        $form .= '<div class="container-fluid">';
+        // $form .= '<div class="container-fluid">';
         $form .= '    <div class="card card-custom gutter-b example example-compact">';
         if ($caption) {
             $form .= '      <div class="card-header">';
@@ -47,18 +47,20 @@ class Form extends Model{
         $form .='               </div>';
         
         $form .='           <div class="card-footer">';
-        $form .='               <div class="row">';
-        $form .='                   <div class="col-lg-4">';
-        $form .='                       <a href="'.($sUrlBtnVoltar ? $sUrlBtnVoltar : url()->previous()).'" class="navi-link">';
-        $form .='                          <button type="button" class="btn btn-light-primary font-weight-bold">Voltar</button>';
-        $form .='                       </a> ';
-        $form .='                       <button type="submit" class="btn btn-primary font-weight-bold mr-2" name="submitButton">'.$sBtnSubmit.'</button>';
+        // $form .='               <div class="row">';
+        $form .='                   <div class="col-lg-7">';
+        if ($sUrlBtnVoltar) {
+            $form .='                       <a href="'.$sUrlBtnVoltar.'" class="navi-link">';
+            $form .='                          <button type="button" class="btn btn-light-primary font-weight-bold">Voltar</button>';
+            $form .='                       </a> ';
+        }
+        $form .='                       <button type="submit" class="btn btn-primary float-right font-weight-bold mr-2" name="submitButton">'.$sBtnSubmit.'</button>';
         $form .='                   </div>';
-        $form .='               </div>';
+        // $form .='               </div>';
         $form .='           </div>';
         $form .='         </form>';
         $form .='      </div>';
-        $form .='</div>';
+        // $form .='</div>';
 
 		if($returnPrint){
 			return $form;
@@ -208,7 +210,7 @@ class Form extends Model{
         $form = '   <!-- Small boxes (Stat box) -->';    
         $form = '   ';    
         foreach ($aDadosSmalBox as $value) {
-            $form .= '<div class="col-lg-3 col-12">';
+            $form .= '<div class="col-lg-4 col-12">';
             $form .= '  <div class="small-box '.$value['background'].'">';
             $form .= '    <div class="inner">';
             $form .= '      <h3>'.$value['header'].'</h3>';

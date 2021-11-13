@@ -59,13 +59,13 @@ function MontaMenu()
             }
             $return[$Bform->idbpack]['submenu']['RLT']['submenu'][] = [
                 'text'          =>  ' • ' . $Bform->nmbform_mostrar,
-                'url'           =>  '#',
+                'url'           =>  route($Bform->nmbform.'.index'),
                 'icon'          =>  ''
             ];
         }else{
             $return[$Bform->idbpack]['submenu'][] = [
                 'text'          =>  ' - ' . $Bform->nmbform_mostrar,
-                'url'           =>  '#',
+                'url'           =>  route($Bform->nmbform.'.index'),
                 'icon'          =>  ''
             ];
         }
