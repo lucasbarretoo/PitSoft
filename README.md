@@ -9,22 +9,22 @@
 
 ## READ ME
 
-Requisitos para rodar o sistema: 
-<p> PHP 8 </p>>
-<p> Laravel 8</p>>
-<p> PostgreSql</p>>
-<p> Composer</p>>
+<h1>Requisitos para rodar o sistema: </h1>
+<p> PHP 8 </p>
+<p> Laravel 8</p>
+<p> PostgreSql</p>
+<p> Composer</p>
 
 
 
-Realizar o clone do projeto https://github.com/lucasbarretoo/PitSoft para uma pasta no seu computador.
+<h1>Realizar o clone do projeto https://github.com/lucasbarretoo/PitSoft para uma pasta no seu computador.</h1>
 
-Após realizar clone alterar a branch do git para a branch develop com o seguinte comando:
-<p git checkout develop >
+<h1>Após realizar clone alterar a branch do git para a branch develop com o seguinte comando:</h1>
+<p> git checkout develop </p>
 
-OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o desenvolvimendo da aplicação
+<h1>OBS.> Importante realizar alteração da branch pois iremos utiliza-la para o desenvolvimendo da aplicação</h1>
 
-Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:
+<h1>Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele não exista tem um arquivo de exemplo chamado ".env.exemple" basta renomea-lo para ".env" e alterar as seguintes informações:</h1>
 
 <p> DB_CONNECTION=pgsql </p>
 <p> DB_HOST=127.0.0.1</p>
@@ -34,8 +34,8 @@ Configurar o banco postgres no arquivo . env na pasta raiz do projeto, caso ele 
 <p> DB_PASSWORD=admin</p>
 
 
-Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:
+<h1>Acessar pasta raiz do projetoa través do terminal e rodar os seguintes comandos:</h1>
 
-composer install
-php artisan migrate
-php artisan db:seed
+<p>composer install</p>
+<p>php artisan migrate</p>
+<p>php artisan db:seed</p>
