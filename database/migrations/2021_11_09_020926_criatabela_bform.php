@@ -12,6 +12,7 @@ class CriatabelaBform extends Migration
      * @return void
      */
     public function up(){
+        
         Schema::create('bform', function (Blueprint $table) {
             $table->id('idbform');
             $table->string('nmbform');
