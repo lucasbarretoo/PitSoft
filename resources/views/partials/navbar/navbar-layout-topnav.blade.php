@@ -22,6 +22,7 @@
             {{-- Navbar left links --}}
             <ul class="nav navbar-nav">
                 {{-- Configured left links --}}
+                
                 @each('adminlte::partials.navbar.menu-item', $adminlte->menu('navbar-left'), 'item')
 
                 {{-- Custom left links --}}

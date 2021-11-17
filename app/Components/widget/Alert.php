@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Components\Widget;
+namespace App\Components\Widget;
 
 use Illuminate\View\Component;
 
