@@ -3,7 +3,7 @@
 @endphp
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'PitSoft - Painel de Atendimento')
 
 @section('content_header')
 <style>
@@ -17,7 +17,7 @@
         ['route' => 'home', 'name' => 'Home', 'status'=>'ativo']
     ];
     Form::bHeaderForm('Painel de Atendimento', $aHistoricoNavegacao);
-    Form::bBeginForm('', $aRota = ['route'=>'home', 'parametros'=>''], $returnPrint = null);
+    Form::bBeginForm('', route('home'), $returnPrint = null, 'Get');
         Form::bBeginRow();
         $aDadosSmalBox = [
             [
@@ -82,37 +82,4 @@
     Form::bEndForm('', 'Adicionar Mesa');
 @endphp
 @stop
-
-
-                {{-- <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                        <div class="row">
-                            <div class="col-2">
-                                <a href="{{route('pessoa.index')}}">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        Listagem de Pessoas
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-2">
-                                <a href="{{route('imovel.index')}}">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        Listagem de Imóveis
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-3">
-                                <a href="{{route('proprietario.index')}}">
-                                    <button type="button" class="btn btn-outline-primary">
-                                        Listagem de Proprietários
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
-                </div> --}}
 

@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        // $this->call(PessoasTableSeed::class);
+        $this->call(PessoasTableSeed::class);
         $this->call(BpackTableSeeder::class);
         $this->call(BformTableSeeder::class);
     }

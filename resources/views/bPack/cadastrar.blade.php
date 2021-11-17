@@ -19,7 +19,6 @@
 @section('content')
 
     @php
-        $aRota = ['route' => 'pessoas.atualizar', 'parametros' => [$pessoa->idpessoa]];
         Form::bBeginForm('Dados', $aRota);
         
         Form:: bEditString('Nome', 'NOME', '4', $pessoa->nmpessoa, false, '', false, '20');

@@ -14,7 +14,7 @@ class Form extends Model{
      * @param text/html $caption
      * @param boolean
      */
-    static function bBeginForm($caption = '', $aRota = [], $returnPrint = null){
+    static function bBeginForm($caption = '', $Rota = '', $returnPrint = null, $method = 'Post'){
         $form = '';
         // $form .= '<div class="container-fluid">';
         $form .= '    <div class="card card-custom gutter-b example example-compact">';
@@ -23,7 +23,7 @@ class Form extends Model{
             $form .= '          <h3 class="card-title">'.$caption.'</h3>';
             $form .= '      </div>';
         }
-        $form .= '          <form class="form" id="form_validate" enctype="multipart/form-data" method="post" action="'.route($aRota['route'], $aRota['parametros']).'" onsubmit="return inlineCheckForm()">';
+        $form .= '          <form class="form" id="form_validate" enctype="multipart/form-data" method="'.$method.'" action="'.$Rota.'" onsubmit="return inlineCheckForm()">';
         $form .= '          <input type="hidden" name="_token" value="'.csrf_token().'">';
         $form .= '          <div class="card-body">';
 
@@ -47,16 +47,14 @@ class Form extends Model{
         $form .='               </div>';
         
         $form .='           <div class="card-footer">';
-        // $form .='               <div class="row">';
-        $form .='                   <div class="col-lg-7">';
+        $form .='               <div class="col-lg-7">';
         if ($sUrlBtnVoltar) {
-            $form .='                       <a href="'.$sUrlBtnVoltar.'" class="navi-link">';
-            $form .='                          <button type="button" class="btn btn-light-primary font-weight-bold">Voltar</button>';
-            $form .='                       </a> ';
+            $form .='               <a href="'.$sUrlBtnVoltar.'" class="navi-link">';
+            $form .='                   <button type="button" class="btn float-right btn-light-primary font-weight-bold">Voltar</button>';
+            $form .='               </a> ';
         }
-        $form .='                       <button type="submit" class="btn btn-primary float-right font-weight-bold mr-2" name="submitButton">'.$sBtnSubmit.'</button>';
-        $form .='                   </div>';
-        // $form .='               </div>';
+        $form .='                   <button type="submit" class="btn btn-primary float-right font-weight-bold mr-2" name="submitButton">'.$sBtnSubmit.'</button>';
+        $form .='               </div>';
         $form .='           </div>';
         $form .='         </form>';
         $form .='      </div>';
@@ -85,7 +83,7 @@ class Form extends Model{
                 $form .='       <li class="breadcrumb-item active">'.$value['name'].'</li>';
             }else{
                 $form .='       <li class="breadcrumb-item">';
-                $form .='           <a href="'.route($value['route']).'">'.$value['name'].'</a>';
+                $form .='           <a href="'.$value['route'].'">'.$value['name'].'</a>';
                 $form .='       </li>';
             }
         }
@@ -230,5 +228,52 @@ class Form extends Model{
         }else{
             return print_r($form);
         }
+    }
+
+    static function bTable($aDataTable = []){
+        
+        $form = '';
+        $form .= '<div class="container-fluid">';
+        $form .= '  <div class="row">';
+        $form .= '      <div class="card col-12">';
+        $form .= '          <div class="card-header">';
+        $form .= '            <h3 class="card-title">'.$aDataTable['title'].'</h3>';
+        $form .= '          </div>';
+        $form .= '          <!-- /.card-header -->';
+        $form .= '          <div class="card-body">';
+        $form .= '            <table class="table table-bordered">';
+        $form .= '              <thead>';
+        $form .= '                <tr>';
+        foreach ($aDataTable['header'] as $value) {
+            $form .= '              <th>'.$value.'</th>';
+        }
+        $form .= '                </tr>';
+        $form .= '              </thead>';
+        $form .= '              <tbody>';
+        foreach ($aDataTable['data'] as $value) {
+            $form .= '              <tr>';
+            foreach ($value as $lines) {
+                $form .= '              <td>'.$lines.'</td>';
+            }
+        $form .= '                  </tr>';
+        }
+        $form .= '            </tbody>';
+        $form .= '            </table>';
+        $form .= '            <div class="card-footer clearfix">';
+        $form .= '              <ul class="pagination pagination-sm m-0 float-right">';
+        $form .= '                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>';
+        $form .= '                  <li class="page-item"><a class="page-link" href="#">1</a></li>';
+        $form .= '                  <li class="page-item"><a class="page-link" href="#">2</a></li>';
+        $form .= '                  <li class="page-item"><a class="page-link" href="#">3</a></li>';
+        $form .= '                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>';
+        $form .= '              </ul>';
+        $form .= '            </div>';
+        $form .= '          </div>';
+        $form .= '          <!-- /.card-body -->';
+        $form .= '  </div>';
+        $form .= '</div>';
+        
+
+        print_r($form);
     }
 }

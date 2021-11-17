@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
-use \App\Models\Pessoa;
+use Illuminate\Support\Facades\DB;
+use App\Models\Pessoa;
 use \App\Models\Telefone;
 
 class PessoasTableSeed extends Seeder{
@@ -14,6 +14,6 @@ class PessoasTableSeed extends Seeder{
      * @return void
      */
     public function run(){
-        
+        Pessoa::factory(20)->create();        
     }
 }

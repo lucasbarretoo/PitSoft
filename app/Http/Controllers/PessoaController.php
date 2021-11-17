@@ -25,14 +25,35 @@ class PessoaController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        $buscarProprietario = $request['buscarProprietario'];
+        $aDadosPessoas =  DB::table('pessoas')
+                        ->orderBy('nmpessoa')->paginate(10);
+        //  dd($bPack);
 
-        if($buscarProprietario){
-            $pessoas = DB::table('PESSOAS');
-        }else{
-            $pessoas = Pessoa::paginate(10);
+        $aDataTable = [];
+        $aDataTable['title'] = 'Lista de pacotes';
+        $aDataTable['header'] = [
+            'Codigo',
+            'Nome',
+            'Email',
+            'Endereco',
+            'Pais',
+            'Estado',
+            'Cidade',
+            'Cep',
+            'Ações',
+        ];
+        foreach ($aDadosPessoas as $pessoa) {
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->idpessoa;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->nmpessoa;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->email;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->endereco;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->pais;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->estado;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->cidade;
+            $aDataTable['data'][$pessoa->idpessoa][] = $pessoa->cep;
+            $aDataTable['data'][$pessoa->idpessoa][] = 'Editar';
         }
-        return view('pessoa.index', compact('pessoas'));
+        return view('pessoa.index', compact('aDataTable'));
 
     }
     

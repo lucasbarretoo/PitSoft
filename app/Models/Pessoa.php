@@ -14,9 +14,9 @@ class Pessoa extends Model{
      * Estrutura do modelo para o banco de dados
      * -----------------------------------------
      */
-    protected $table = 'PESSOAS';
-    protected $primaryKey = 'IDPESSOA';
-    protected $fillable = ['IDPESSOA', 'NOME', 'EMAIL', 'ENDERECO', 'PAIS', 'CIDADE', 'ESTADO', 'CEP'];
+    protected $table = 'pessoas';
+    protected $primaryKey = 'idpessoa';
+    protected $fillable = ['idpessoa', 'nmpessoa', 'email', 'endereco', 'pais', 'cidade', 'estado', 'cep'];
 
     /**
      * ----------------------------------------

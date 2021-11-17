@@ -31,7 +31,11 @@ Route::middleware(['auth'])->group(function () {
      */
     Route::prefix('/sistema')->group(function(){
         Route::get('/bpack', [bPackController::class,'index'])->name('bpack.index');
+        Route::get('/bpackCadastrar', [bPackController::class,'cadastrar'])->name('bpack.cadastrar');
+        Route::get('/bpackGravar', [bPackController::class,'gravar'])->name('bpack.gravar');
         Route::get('/bform', [bFormController::class,'index'])->name('bform.index');
+        Route::get('/bformCadastrar', [bFormController::class,'cadastrar'])->name('bform.cadastrar');
+        Route::get('/bformGravar', [bFormController::class,'gravar'])->name('bform.gravar');
     });
 
     /**
@@ -42,17 +46,17 @@ Route::middleware(['auth'])->group(function () {
         
         Route::get('/Pessoas', [PessoaController::class,'index'])->name('pessoas.index');
         
-        Route::get('/pessoa/cadastrar', [PessoaController::class,'cadastrar'])->name('pessoa.cadastrar');
+        Route::get('/pessoa/cadastrar', [PessoaController::class,'cadastrar'])->name('pessoas.cadastrar');
         
-        Route::post('/pessoa/salvar', [PessoaController::class,'salvar'])->name('pessoa.salvar');
+        Route::post('/pessoa/salvar', [PessoaController::class,'salvar'])->name('pessoas.salvar');
         
-        Route::put('/pessoa/atualizar/{IDPESSOA}', [PessoaController::class,'atualizar'])->name('pessoa.atualizar');
+        Route::put('/pessoa/atualizar/{IDPESSOA}', [PessoaController::class,'atualizar'])->name('pessoas.atualizar');
         
-        Route::get('/pessoa/editar/{IDPESSOA}', [PessoaController::class,'editar'])->name('pessoa.editar');
+        Route::get('/pessoa/editar/{IDPESSOA}', [PessoaController::class,'editar'])->name('pessoas.editar');
         
-        Route::get('/pessoa/deletar/{IDPESSOA}', [PessoaController::class,'deletar'])->name('pessoa.deletar');
+        Route::get('/pessoa/deletar/{IDPESSOA}', [PessoaController::class,'deletar'])->name('pessoas.deletar');
         
-        Route::get('/pessoa/detalhar/{IDPESSOA}', [PessoaController::class, 'detalhe'])->name('pessoa.detalhe');
+        Route::get('/pessoa/detalhar/{IDPESSOA}', [PessoaController::class, 'detalhe'])->name('pessoas.detalhe');
 
         Route::prefix('/Relatorios')->group(function(){
             Route::get('/rlt_produtos', [rlt_produtosController::class, 'index'])->name('rlt_produtos.index');
