@@ -12,7 +12,7 @@ class Bform extends Model
     protected $table = 'bform';
     protected $primaryKey = 'idbform';
 
-    public function Bpack(){
+    public function bPack(){
         return $this->hasOne(Bpack::class);
     }
 }

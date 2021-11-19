@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 function MontaMenu()
 {
@@ -59,13 +60,13 @@ function MontaMenu()
             }
             $return[$Bform->idbpack]['submenu']['RLT']['submenu'][] = [
                 'text'          =>  ' • ' . $Bform->nmbform_mostrar,
-                'url'           =>  route($Bform->nmbform.'.index'),
+                'url'           =>  Route::has($Bform->nmbform.'.index') ? route($Bform->nmbform.'.index') : '#',
                 'icon'          =>  ''
             ];
         }else{
             $return[$Bform->idbpack]['submenu'][] = [
                 'text'          =>  ' - ' . $Bform->nmbform_mostrar,
-                'url'           =>  route($Bform->nmbform.'.index'),
+                'url'           =>  Route::has($Bform->nmbform.'.index') ? route($Bform->nmbform.'.index') : '#',
                 'icon'          =>  ''
             ];
         }

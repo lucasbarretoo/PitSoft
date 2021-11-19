@@ -13,22 +13,18 @@
         ['route' => route('bform.index'), 'name' => 'bForm', 'status'=>'inativo'],
         ['route' => '', 'name' => 'Incluir Formulário', 'status'=>'ativo']
     ];
-    Form::bHeaderForm('Editar Pessoa', $aHistoricoNavegacao);
+    Form::bHeaderForm('Incluir Formulário', $aHistoricoNavegacao);
 @endphp
 @stop
 
 @section('content')
 
+    @include ('partials.messages')
     @php
-        Form::bBeginForm('Dados', route('bform.gravar'));
-        
-        Form::bBeginRow();
-            Form::bEditString('Nome', 'nmbpack', '4', '', false, '', false, '20');
-            Form::bEditString('Nome Mostrar', 'nmbpack_mostrar', '4', '', false, '', false, '20');
-            Form::bEditString('Tipo', 'EMAIL', '4', '', false, '', false, '20');
-            Form::bEditString('Pacote Pertencente', 'ENDERECO', '4', '', false, '', false, '20');
-        Form::bEndRow();
-
+        Form::bBeginForm('Dados', route('bform.gravar'), null, 'post');
+            Form::bEditString('Nome', 'nmbform', '4', '', false, '', false, '20');
+            Form::bEditString('Nome Mostrar', 'nmbform_mostrar', '4', '', false, '', false, '20');
+            Form::bEditString('Pacote Pertencente', 'nmbpack', '4', '', false, '', false, '20');
         Form::bEndForm(route('bform.index'), 'Gravar');
     @endphp
     

@@ -9,25 +9,29 @@
 @php
     $aHistoricoNavegacao = [
         ['route' => route('home'), 'name' => 'Home', 'status'=>'inativo'],
-        ['route' => route('pessoas.index'), 'name' => 'Listagem de Pessoas', 'status'=>'inativo'],
+        ['route' => route('bform.index'), 'name' => 'Listagem de Pessoas', 'status'=>'inativo'],
         ['route' => '', 'name' => 'Editar Pessoa', 'status'=>'ativo']
     ];
-    Form::bHeaderForm('Editar Pessoa', $aHistoricoNavegacao);
+    Form::bHeaderForm('Editar Formulário', $aHistoricoNavegacao);
 @endphp
 @stop
 
 @section('content')
 
+    @include ('partials.messages')
     @php
-        $aRota = ['route' => 'pessoas.atualizar', 'parametros' => [$pessoa->idpessoa]];
-        Form::bBeginForm('Dados', $aRota);
-        
-        Form:: bEditString('Nome', 'NOME', '4', $pessoa->nmpessoa, false, '', false, '20');
-        Form:: bEditString('Email', 'EMAIL', '4', $pessoa->email, false, '', false, '20');
-        Form:: bEditString('Endereço', 'ENDERECO', '4', $pessoa->endereco, false, '', false, '20');
-        Form:: bEditString('Nome', 'name', '4', '', false, '', false, '20');
-
-        Form::bEndForm(route('pessoas.index'));
+        Form::bBeginForm('Dados', route('bform.gravar', $bForm), null, 'post');
+            Form::bEditString('Nome', 'nmbform', '4', $bForm->nmbform, false, '', false, '20');
+            Form::bEditString('Nome Mostrar', 'nmbform_mostrar', '4', $bForm->nmbform_mostrar, false, '', false, '20');
+            Form::bEditString('Pacote Pertencente', 'nmbpack', '4', $bPack->nmbpack, false, '', false, '20');
+            $btnExtras = [
+                'btnExcluir' => [
+                    'route' => route('bform.excluir'),
+                    'class' => 'btn btn-outline-danger',
+                    'title' => 'Excluir'
+                ]
+            ];
+        Form::bEndForm(route('bform.index'), 'Gravar', $btnExtras);
     @endphp
     
 @stop

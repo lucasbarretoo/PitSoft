@@ -41,19 +41,28 @@ class Form extends Model{
      *
      * @param boolean
      */
-    static function bEndForm($sUrlBtnVoltar = '', $sBtnSubmit = 'Salvar', $returnPrint = null){
+    static function bEndForm($sUrlBtnVoltar = '', $sBtnSubmit = 'Salvar', $aBtnExtra = [], $returnPrint = null){
 		
         $form = '';
         $form .='               </div>';
         
         $form .='           <div class="card-footer">';
-        $form .='               <div class="col-lg-7">';
+        $form .='               <div class="row justify-content-md-center">';
+        if (!empty($aBtnExtra)) {
+            foreach ($aBtnExtra as $btnExtra) {
+                $form .='               <a href="'.$btnExtra['route'].'" class="col col-lg-2">';
+                $form .='                   <button type="button" class="'.$btnExtra['class'].' col float-right font-weight-bold">'.$btnExtra['title'].'</button>';
+                $form .='               </a> ';
+            }
+        }
         if ($sUrlBtnVoltar) {
-            $form .='               <a href="'.$sUrlBtnVoltar.'" class="navi-link">';
-            $form .='                   <button type="button" class="btn float-right btn-light-primary font-weight-bold">Voltar</button>';
+            $form .='               <a href="'.$sUrlBtnVoltar.'" class="col col-lg-2">';
+            $form .='                   <button type="button" class="btn btn-default col font-weight-bold">Voltar</button>';
             $form .='               </a> ';
         }
-        $form .='                   <button type="submit" class="btn btn-primary float-right font-weight-bold mr-2" name="submitButton">'.$sBtnSubmit.'</button>';
+        $form .='                   <div class="col col-lg-2">';
+        $form .='                       <button type="submit" class="btn btn-primary col font-weight-bold" name="submitButton">'.$sBtnSubmit.'</button>';
+        $form .='                   </div>';
         $form .='               </div>';
         $form .='           </div>';
         $form .='         </form>';
