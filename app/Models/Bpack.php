@@ -13,6 +13,6 @@ class Bpack extends Model
     protected $primaryKey = 'idbpack';
 
     public function bForm(){
-        return $this->hasMany(Bpack::class);
+        return $this->hasMany(Bpack::class, 'idbpack', 'idbpack');
     }
 }

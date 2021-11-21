@@ -13,6 +13,6 @@ class Bform extends Model
     protected $primaryKey = 'idbform';
 
     public function bPack(){
-        return $this->hasOne(Bpack::class);
+        return $this->hasOne(Bpack::class, 'idbpack_pai', 'idpbpack');
     }
 }

@@ -12,15 +12,12 @@
 @stop
 
 @section('content')
-@php
-    $aHistoricoNavegacao = [
-        ['route' => route('home'), 'name' => 'Home', 'status'=>'inativo'],
-        ['route' => '', 'name' => 'Sistema', 'status'=>'inativo'],
-        ['route' => '', 'name' => 'bForm', 'status'=>'ativo']
-    ];
-    Form::bHeaderForm('Formulários', $aHistoricoNavegacao);
-    Form::bBeginForm('', route('bform.cadastrar'), $returnPrint = null, 'Get');
-        Form::bTable($aDataTable);
-    Form::bEndForm(route('bform.cadastrar'), 'Incluir Registro');
-@endphp
+    @include ('partials.messages')
+
+    @php
+        Form::bHeaderForm($title, $aHistoricoNavegacao);
+        Form::bBeginForm('', route('bform.cadastrar'), $returnPrint = null, 'Get');
+            Form::bTable($aDataTable);
+        Form::bEndForm(route('bform.cadastrar'), 'Incluir Registro');
+    @endphp
 @stop

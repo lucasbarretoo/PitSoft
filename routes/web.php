@@ -43,9 +43,9 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('/bform')->group(function(){
             Route::get('/', [bFormController::class,'index'])->name('bform.index');
             Route::get('/Cadastrar', [bFormController::class,'cadastrar'])->name('bform.cadastrar');
-            Route::post('/Gravar', [bFormController::class,'gravar'])->name('bform.gravar');
+            Route::post('/Gravar/{idbForm?}', [bFormController::class,'gravar'])->name('bform.gravar');
             Route::post('/Editar', [bFormController::class,'editar'])->name('bform.editar');
-            Route::post('/Excluir', [bFormController::class,'excluir'])->name('bform.excluir');
+            Route::get('/Excluir/{idbForm}', [bFormController::class,'excluir'])->name('bform.excluir');
         });
 
     });

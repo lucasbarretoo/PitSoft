@@ -167,7 +167,12 @@ class Form extends Model{
         $form = '';
         $form .= '<div class="col-lg-'.$sizeCol.'">';
         $form .= '  <label class="'.$colorLabelRequired.'">'.$caption.'</label>';
-        $form .= '  <input type="text" class="form-control '.$class.'" '.$class.' name="'.$name.'" id="'.$name.'"' . ($maxlength ? 'maxlength="' . $maxlength . '"' : '') . 'value="'.$value.'" >' . ($readonly ? 'readonly' : '');
+        $form .= '  <input type="text" class="form-control '.$class.'" '.$class.' 
+                        name="'.$name.'" 
+                        id="'.$name.'"' . 
+                        ($maxlength ? 'maxlength="' . $maxlength . '"' : '') .
+                        'value="'.$value.'"' .
+                        ($readonly ? 'readonly' : ''). '>';
         $form .= '</div>';
 
         if($returnPrint){
