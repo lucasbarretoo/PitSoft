@@ -3,7 +3,7 @@
 @endphp
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'PtSoft - ' . $title)
 
 @section('content_header')
 @php

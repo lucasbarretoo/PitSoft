@@ -6,16 +6,14 @@
 @section('title', 'PitSoft - Formulários')
 
 @section('content_header')
-<style>
-
-</style>
+    @php
+        Form::bHeaderForm($title, $aHistoricoNavegacao);
+    @endphp
 @stop
 
 @section('content')
     @include ('partials.messages')
-
     @php
-        Form::bHeaderForm($title, $aHistoricoNavegacao);
         Form::bBeginForm('', route('bform.cadastrar'), $returnPrint = null, 'Get');
             Form::bTable($aDataTable);
         Form::bEndForm(route('bform.cadastrar'), 'Incluir Registro');

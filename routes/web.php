@@ -34,17 +34,17 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('/bpack')->group(function(){
             Route::get('/', [bPackController::class,'index'])->name('bpack.index');
-            Route::get('/Cadastrar', [bPackController::class,'cadastrar'])->name('bpack.cadastrar');
-            Route::get('/Gravar', [bPackController::class,'gravar'])->name('bpack.gravar');
-            Route::post('/Editar', [bPackController::class,'editar'])->name('bpack.editar');
-            Route::post('/Excluir', [bPackController::class,'excluir'])->name('bpack.excluir');
+            Route::post('/Cadastrar', [bPackController::class,'cadastrar'])->name('bpack.cadastrar');
+            Route::post('/Gravar/{idbPack?}', [bPackController::class,'gravar'])->name('bpack.gravar');
+            Route::get('/Editar/{idbPack}', [bPackController::class,'editar'])->name('bpack.editar');
+            Route::get('/Excluir/{idbPack}', [bPackController::class,'excluir'])->name('bpack.excluir');
         });
 
         Route::prefix('/bform')->group(function(){
             Route::get('/', [bFormController::class,'index'])->name('bform.index');
             Route::get('/Cadastrar', [bFormController::class,'cadastrar'])->name('bform.cadastrar');
             Route::post('/Gravar/{idbForm?}', [bFormController::class,'gravar'])->name('bform.gravar');
-            Route::post('/Editar', [bFormController::class,'editar'])->name('bform.editar');
+            Route::get('/Editar/{idbForm}', [bFormController::class,'editar'])->name('bform.editar');
             Route::get('/Excluir/{idbForm}', [bFormController::class,'excluir'])->name('bform.excluir');
         });
 

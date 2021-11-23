@@ -244,7 +244,7 @@ class Form extends Model{
         }
     }
 
-    static function bTable($aDataTable = []){
+    static function bTable($aDataTable = [], $return = false){
         
         $form = '';
         $form .= '<div class="container-fluid">';
@@ -288,6 +288,23 @@ class Form extends Model{
         $form .= '</div>';
         
 
-        print_r($form);
+        if ($return) {
+            return $form;
+        }else{
+            return print_r($form);
+        }
+    }
+
+    static function bButtonIcon($aDadosButton, $return = false){
+        $form = '';
+        $form .='<a href="'.$aDadosButton['route'].'" class="col col-lg-2">';
+        $form .='   <i class="'.$aDadosButton['icon'].'"></i>';
+        $form .='</a> ';
+
+        if ($return) {
+            return $form;
+        }else{
+            return print_r($form);
+        }
     }
 }
