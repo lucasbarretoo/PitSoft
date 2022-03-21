@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('/bform')->group(function(){
             Route::get('/', [bFormController::class,'index'])->name('bform.index');
+            Route::get('/ListagembFormPDF', [bFormController::class,'ListagembFormPDF'])->name('bform.ListagembFormPDF');
             Route::get('/Cadastrar', [bFormController::class,'cadastrar'])->name('bform.cadastrar');
             Route::post('/Gravar/{idbForm?}', [bFormController::class,'gravar'])->name('bform.gravar');
             Route::get('/Editar/{idbForm}', [bFormController::class,'editar'])->name('bform.editar');

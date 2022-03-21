@@ -245,7 +245,6 @@ class Form extends Model{
     }
 
     static function bTable($aDataTable = [], $return = false){
-        
         $form = '';
         $form .= '<div class="container-fluid">';
         $form .= '  <div class="row">';
@@ -255,9 +254,12 @@ class Form extends Model{
         $form .= '          </div>';
         $form .= '          <!-- /.card-header -->';
         $form .= '          <div class="card-body">';
+        // $form .= '          <div class="row">';
+        // $form .= '          </div>';
         $form .= '            <table class="table table-bordered">';
         $form .= '              <thead>';
         $form .= '                <tr>';
+        $form .=                self::bButtonGroup($aDataTable['ActionsHeader'] , true);
         foreach ($aDataTable['header'] as $value) {
             $form .= '              <th>'.$value.'</th>';
         }
@@ -294,13 +296,38 @@ class Form extends Model{
             return print_r($form);
         }
     }
-
+    
+    /**
+     * Method bButtonIcon
+     *
+     * @param $aDadosButton $aDadosButton [explicite description]
+     *    $aDadosButton = ['route'=> $valueRoute, 'icon'=>$valueIcon]
+     * @param $return $return [explicite description]
+     *
+     * @return void
+     */
     static function bButtonIcon($aDadosButton, $return = false){
         $form = '';
         $form .='<a href="'.$aDadosButton['route'].'" class="col col-lg-2">';
         $form .='   <i class="'.$aDadosButton['icon'].'"></i>';
         $form .='</a> ';
 
+        if ($return) {
+            return $form;
+        }else{
+            return print_r($form);
+        }
+    }
+    
+    static function bButtonGroup($aDadosButton, $return = false){
+        $form ='';
+        $form .='<div class="btn-group">';
+        foreach ($aDadosButton as $button) {
+            $button['type'] = isset($button['type']) && $button['type'] ? $button['type'] : 'info';
+            $form .='<a href="'.$button['route'].'" class="">';
+            $form .='   <button type="button" class="btn btn-'.$button['type'].'"><i class="'.$button['icon'].'"></i>'.$button['text'].'</button>';
+            $form .='</a> ';
+        }
         if ($return) {
             return $form;
         }else{

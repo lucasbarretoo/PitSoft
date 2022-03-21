@@ -8,6 +8,7 @@ use App\Models\bForm;
 use App\Models\Sist\Form;
 use App\Models\bPack;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class bFormController extends Controller
 {    
@@ -16,7 +17,7 @@ class bFormController extends Controller
      *
      * @return void
      */
-    public function index(){
+    public function index($returnDataView = false){
     
         $aDadosbForm =  DB::table('bform')
                         ->join('bpack', 'bform.idbpack', 'bpack.idbpack')
@@ -26,6 +27,9 @@ class bFormController extends Controller
         $aDataTable = [];
         $aDataTable['title'] = 'Lista de formulários';
         // $aDataTable['paginate'] = $aDadosbForm;
+        $aDataTable['ActionsHeader'] = [
+            ['route'=> route('bform.ListagembFormPDF'), 'icon'=>'far fa-file-pdf', 'text'=>'Download PDF']
+        ];
         $aDataTable['header'] = [
             'Codigo',
             'Nome',
@@ -51,7 +55,20 @@ class bFormController extends Controller
             ['route' => '', 'name' => 'Sistema', 'status'=>'inativo'],
             ['route' => '', 'name' => 'bForm', 'status'=>'ativo']
         ];
+        // $title = '<b class="capitalize">Registro excluído!</b>';
+        // $msg = 'Formulário excluído com sucesso!';
+        // self::message('success',  $msg,  $title);
+        if ($returnDataView) {
+            return ['name'=> 'bForm.index', 'data' => ['aDataTable' => $aDataTable, 'aHistoricoNavegacao' => $aHistoricoNavegacao, 'title'=>$title]];
+        }
         return view('bForm.index', compact('aDataTable', 'aHistoricoNavegacao', 'title'));
+    }
+
+    public function ListagembFormPDF(){
+        $view = $this->index(true);
+        $pdf = PDF::loadView('bForm.ListagembFormPDF', $view['data']);
+        // dd($pdf); 
+        return $pdf->download("ListagembFormPDF.pdf");
     }
     
     /**
